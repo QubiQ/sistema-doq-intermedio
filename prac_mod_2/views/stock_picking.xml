@@ -10,7 +10,6 @@
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
                 <!-- Add your fields here -->
-                <field name="rating_count" invisible="1"/>
                 <button name="action_rating_send" attrs="{'invisible': [('state', '!=', 'done')]}" string="Request Rating" type="object" class="oe_highlight" groups="base.group_user"/>
             </xpath>
         </field>
