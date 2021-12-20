@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Copyright 2021 Jesus Ramoneda <jesus.ramoneda@qubiq.es>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- product.pricelist inherit form view -->
+    <record id="product_pricelist_view" model="ir.ui.view">
+        <field name="name">product.pricelist.inherit.view.form</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <form position="inside">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="rating_stock_picking_email_template" model="mail.template">
+            <field name="name">Delivery: Rating Request</field>
+            <field name="email_from">${object.rating_get_rated_partner_id().email or '' | safe}</field>
+            <field name="subject">Service Rating Request</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="partner_to">${object.rating_get_partner_id().id}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    % set access_token = object.rating_get_access_token()
+                    <p>Hi,</p>
+                    <p>How satsified are you?</p>
+                    <ul>
+                    <li><a href="/rate/${access_token}/5">Satisfied</a></li>
+                    <li><a href="/rate/${access_token}/3">Okay</a></li>
+                    <li><a href="/rate/${access_token}/1">Dissatisfied</a></li>
+                    </ul>
+                    ]]>
+            </field>
+        </record>
+    </data>
+
+</odoo>
