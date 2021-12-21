@@ -1,0 +1,19 @@
+<odoo>
+    <!-- signup.wizard form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">signup.wizard.view.form</field>
+        <field name="model">signup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="sign_up" string="Confirm" class="oe_highlight" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

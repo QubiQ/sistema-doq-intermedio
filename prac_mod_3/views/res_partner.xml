@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<odoo>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <!-- 1º Historia de Usuario -->
+            <xpath expr="//filter[@name='type_company']" position="after">
+                <filter string="Library Partners" name="library_partner" domain="[('is_library_partner', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- 1º Historia de Usuario -->
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_library_partner" invisible="1"/>
+                <field name="library_partner_code" attrs="{'invisible': [('is_library_partner', '=', False)]}"/>
+            </xpath>
+
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="singup" string="Singup" class="oe_highlight" type="object" attrs="{'invisible': [('is_library_partner', '=', True)]}"/>
+                    <!-- 2º Historia de Usuario-->
+                    <button name="dropout" string="Drop Out" type="object" attrs="{'invisible': [('is_library_partner', '=', False)]}"/>
+                    <button name="launch_rent_wizard" string="Rent a book" type="object" attrs="{'invisible': [('is_library_partner', '=', False)]}"/>
+                    <button name="launch_return_wizard" string="Return a book" type="object" attrs="{'invisible': [('is_library_partner', '=', False)]}"/>
+                </header>
+            </xpath>
+
+            <!-- Módulo 3 Wizards Apartado 2 -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat" icon="fa-star">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="rate"/>
+                        </span>
+                        <span class="o_stat_text">Rating</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

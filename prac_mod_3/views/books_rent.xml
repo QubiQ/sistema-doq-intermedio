@@ -1,0 +1,59 @@
+<odoo>
+    <record id="books_rent_view_form" model="ir.ui.view">
+        <field name="name">books.rent.view.form</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="partner_id" />
+                        <field name="book_id" />
+                        <field name="state" />
+                        <field name="loan_date" />
+                        <field name="return_date" attrs="{'invisible': [('state', '=', 'returned')]}" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="books_rent_view_tree" model="ir.ui.view">
+        <field name="name">books.rent.view.tree</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" />
+                <field name="book_id" />
+                <field name="state" />
+                <field name="loan_date" />
+                <field name="return_date" attrs="{'invisible': [('state', '=', 'loan')]}" />
+                <!-- Módulo 3 Wizards: Apartado 1-->
+                <button class="oe_highlight" string="Rate" name="launch_rate_wizard" type="object" attrs="{'invisible':[('state', '!=', 'returned')]}"/> 
+            </tree>
+        </field>
+    </record>
+
+    <record id="books_rent_action" model="ir.actions.act_window">
+        <field name="name">Rents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">books.rent</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Begin to register rents
+            </p>
+        </field>
+    </record>
+
+    <record id="act_print_rents" model="ir.actions.act_window">
+        <field name="name">Print rents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">print.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="rents_parent_menu" name="Rents" parent="books_parent_menu" sequence="20"/>
+    <menuitem id="books_rent_menu_act" name="View rents" parent='rents_parent_menu' action="books_rent_action" sequence="40"/>
+    <menuitem id="print_rent_menu_act" name="Print rents" parent='rents_parent_menu' action="act_print_rents" sequence="45"/>
+
+</odoo>

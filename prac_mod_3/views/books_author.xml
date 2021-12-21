@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- books.author form view -->
+    <record id="books_author_view_form" model="ir.ui.view">
+        <field name="name">books.author.view.form</field>
+        <field name="model">books.author</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <h1>
+                        <field name="name" placeholder="name"/>
+                    </h1>
+                    <group>
+                        <field name="genre_ids" widget="many2many_tags"/>
+                        <field name="books_ids" readonly="1">
+                            <tree string="Books">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+    <record id="books_author_view_tree" model="ir.ui.view">
+        <field name="name">books.author.view.tree</field>
+        <field name="model">books.author</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    
+    <record id="books_author_action" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">books.author</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Begin to register Authors
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="books_author_menu_act" name="Authors" parent='books_parent_menu' action="books_author_action" sequence="10" />
+
+</odoo>

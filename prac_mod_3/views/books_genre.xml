@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- books.genre form view -->
+    <record id="books_genre_view_form" model="ir.ui.view">
+        <field name="name">books.genre.view.form</field>
+        <field name="model">books.genre</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- books.genre tree view -->
+    <record id="books_genre_view_tree" model="ir.ui.view">
+        <field name="name">books.genre.view.tree</field>
+        <field name="model">books.genre</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- books.genre action window -->
+    <record id="books_genre_action" model="ir.actions.act_window">
+        <field name="name">Genres</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">books.genre</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Begin to register Genres
+            </p>
+            <p>            </p>
+        </field>
+    </record>
+
+    <menuitem id="books_genre_menu_act" name="Genres" parent='books_parent_menu' action="books_genre_action" sequence="11" />
+
+</odoo>
