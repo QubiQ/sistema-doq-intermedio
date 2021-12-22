@@ -15,5 +15,5 @@ class ReturnBookWizard(models.TransientModel):
     
     def return_book(self):
 
-        rent = self.env["books.rent"].search([('partner_id','=', self._context["active_id"]), ('book_id', '=', self.book_id.id)])
+        rent = self.env["books.rent"].search([('partner_id','=', self._context["active_id"]), ('state','=', 'loan'), ('book_id', '=', self.book_id.id)])
         rent.write({'state':'returned', 'return_date':fields.datetime.now()})
