@@ -10,7 +10,7 @@ class RentBook(models.TransientModel):
     def rent_book(self):
         
         #primero hacemos check por si hay que bloquear (ya tiene 2 rents en loan)
-        if len(self.env["books.rent"].search([('partner_id','=', self._context["active_id"]), ('state', '=', 'loan')])) == 2:
+        if len(self.env["books.rent"].search([('partner_id','=', self._context["active_id"]), ('state', '=', 'loan')])) > 1:
             self.env["res.partner"].browse(self._context["active_id"]).write({"can_rent":False})
             raise ValidationError("This user has passed the rent limit!")
         
