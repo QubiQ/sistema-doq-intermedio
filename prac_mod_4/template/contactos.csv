@@ -1,0 +1,6 @@
+nombre;nif;compañia;direccion;pais;movil;correo;categorias;plazos_pago;cuenta_bancaria;nombre_contacto;email_contacto;movil_contacto
+(Nombre contacto);(NIF/CIF);(Si es una compañia o individual);(calle, codigo_postal – ciudad, estado);(Código de pais);;;(categorias separadas por comas);(plazos de pago de venta);(Banco – cuenta bancaria);(Nombre del contacto);;
+"OpenWood
+";ESA12345674;Si;Flecor 23, 07392 - Ciudad Real, Ciudad Real;ES;6283948292;openwood@gmail.com;Premium,Gran Calidad;15 días;Santander - ES19382100499839293;Alicia Segovia;alicia.openwood@gmail.com;748283929
+Azure Interior;BE0477472701;Si;PT house 312, 18492 -Sant Priestorm, Okawa;BE;7382918245;azure.interior@gmail.com;Low Cost,Premium;30 días;Bel Bank - BE48392039492019319283;Adams Smith;adams@azure.es;849489293
+Great Goods;ESA12345773;Si;Olivares 120, 85943 - Sebastían, Galicia;ES;8373728292;great.goods@gmail.com;Cercania,Low Cost;15 días;BBVA - ES20104929305928193;Rodrigo;rodrigo@gmail.com;
