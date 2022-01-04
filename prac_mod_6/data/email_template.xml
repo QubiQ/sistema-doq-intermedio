@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="email_template_server_rent" model="mail.template">
+            <field name="name">Book rent confirmation</field>
+            <field name="model_id" ref="practica_final_3.model_books_rent" />
+            <field name="email_from">${ctx["email_from"]}</field>
+            <field name="email_to">${ctx["email_to"]}</field>
+            <field name="subject">Book rent (id ${object.id})</field>
+            <field name="body_html">
+                <![CDATA[
+         <p>Dear ${ctx["partner_id"]},<br/><br/>
+         We want to confirm you the rent (id: ${object.id}) with the product: <br/>
+         Book: ${object.book_id.name}
+         Author: ${object.book_id.author_id.name} <br/><br/>
+        Thank you for trusting us.<br/>]]>
+            </field>
+        </record>
+    </data>
+</odoo>

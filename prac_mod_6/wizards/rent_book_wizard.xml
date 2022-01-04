@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">rent.book.wizard.view.form</field>
+        <field name="model">rent.book.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="book_id"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="rent_book" string="Proceed" type="object" class="oe_hihglight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

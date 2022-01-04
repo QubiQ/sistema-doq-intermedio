@@ -1,0 +1,106 @@
+<odoo>
+    <record id="books_rent_view_form" model="ir.ui.view">
+        <field name="name">books.rent.view.form</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <!-- Práctica módulo 6 - Apartado 2 -->
+                <header>
+                    <button class="oe_highlight" name="compose_email" type="object" string="Send mail"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="partner_id" />
+                        <field name="book_id" />
+                        <field name="state" />
+                        <field name="loan_date" />
+                        <field name="return_date" attrs="{'invisible': [('state', '=', 'returned')]}" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="books_rent_view_tree" model="ir.ui.view">
+        <field name="name">books.rent.view.tree</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" />
+                <field name="book_id" />
+                <field name="state" />
+                <field name="loan_date" />
+                <field name="return_date" attrs="{'invisible': [('state', '=', 'loan')]}" />
+                <button class="oe_highlight" string="Rate" name="launch_rate_wizard" type="object" attrs="{'invisible':[('state', '!=', 'returned')]}"/> 
+            </tree>
+        </field>
+    </record>
+
+    <record id="rent_books_view_graph" model="ir.ui.view">
+        <field name="name">books.rent.view.graph</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <graph type="pie" string="Rents">
+                <field name="partner_id"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="books_rent_view_pivot" model="ir.ui.view">
+        <field name="name">books.rent.view.pivot</field>
+        <field name="model">books.rent</field>
+        <field name="arch" type="xml">
+            <pivot string="Rents matrix">
+                <field name="book_id" type="col"/>
+                <field name="partner_id" type="row"/>
+                <field name="loan_date" type="row" interval="week"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="books_rent_action" model="ir.actions.act_window">
+        <field name="name">Rents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">books.rent</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Begin to register rents
+            </p>
+        </field>
+    </record>
+
+    <record id="books_rent_graph_action" model="ir.actions.act_window">
+        <field name="name">Rents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">books.rent</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Rents graphs
+            </p>
+        </field>
+    </record>
+
+    <record id="act_print_rents" model="ir.actions.act_window">
+        <field name="name">Print rents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">print.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Práctica módulo 6 - Apartado 1 -->
+    <record model="ir.actions.server" id="action_server_send_mails">
+        <field name="name">Send confirmation email</field>
+        <field name="model_id" ref="model_books_rent"/>
+        <field name="binding_model_id" ref="model_books_rent" />
+        <field name="state">code</field>
+        <field name="code">records.send_mail_server()</field>
+    </record>
+
+    <menuitem id="rents_parent_menu" name="Rents" parent="books_parent_menu" sequence="20"/>
+    <menuitem id="books_rent_menu_act" name="View rents" parent='rents_parent_menu' action="books_rent_action" sequence="40"/>
+    <menuitem id="print_rent_menu_act" name="Print rents" parent='rents_parent_menu' action="act_print_rents" sequence="45"/>
+    <menuitem id="books_rent_graphs_menu_act" name="Graphs" parent='rents_parent_menu' action="books_rent_graph_action" sequence="50"/>
+    
+</odoo>
