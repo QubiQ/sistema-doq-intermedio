@@ -1,0 +1,18 @@
+<odoo>
+    <record id="rate_wizard_view_form" model="ir.ui.view">
+        <field name="name">rate.wizard.view.form</field>
+        <field name="model">rate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="book_state" string="Book state"/>                 
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="rate_user" string="Rate User" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

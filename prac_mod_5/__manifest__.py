@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "DOQ Intermedio - Módulo 3",
-    "summary": "Práctica módulo 3 del Sistema DOQ Intermedio",
+    "name": "DOQ Intermedio - Módulo 5",
+    "summary": "Práctica módulo 5 del Sistema DOQ Intermedio",
     "version": "14.0.1.0.0",
     "category": "Sistema DOQ",
     "website": "https://www.qubiq.es",
@@ -25,5 +25,6 @@
              'views/report_books.xml',
              'views/books_rent.xml',
              'views/reports.xml',
-             'views/books_genre.xml'],
+             'views/books_genre.xml',
+             'views/report_sql.xml'],
 }

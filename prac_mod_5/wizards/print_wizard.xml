@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="print_wizard_view_form" model="ir.ui.view">
+        <field name="name">print.wizard.view.form</field>
+        <field name="model">print.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>                        
+                    </group>
+                </sheet>
+                <footer>
+                    <button class="oe_highlight" type="object" name="print_report" string="Print"/>
+                    <!-- Práctica módulo 5 - Vistas -->
+                    <button class="oe_highlight" type="object" name="print_sql_report" string="SQL report"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

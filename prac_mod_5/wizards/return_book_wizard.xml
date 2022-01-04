@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- return.book.wizard form view -->
+    <record id="book_wizard_view_form" model="ir.ui.view">
+        <field name="name">return.book.wizard.view.form</field>
+        <field name="model">return.book.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="book_id" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="return_book" type="object" string="Confirm"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

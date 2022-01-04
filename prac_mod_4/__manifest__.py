@@ -1,6 +1,6 @@
 {
-    "name": "Módulo 4 Sistema DOQ",
-    "summary": "Módulo 4 Sistema DOQ",
+    "name": "DOQ Intermedio - Módulo 4",
+    "summary": "Práctica módulo 4 del Sistema DOQ Intermedio",
     "version": "14.0.1.0.1",
     "category": "Sistema DOQ",
     "website": "https://www.qubiq.es",

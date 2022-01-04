@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Práctica módulo 5 - Vistas -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">report.sql.view.form</field>
+        <field name="model">report.sql</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="book_name"/>
+                        <field name="isbn"/>
+                        <field name="partner_name"/>
+                        <field name="partner_code"/>
+                        <field name="partner_rating"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- report.sql tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">report.sql.view.tree</field>
+        <field name="model">report.sql</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="book_name"/>
+                <field name="isbn"/>
+                <field name="partner_name"/>
+                <field name="partner_code"/>
+                <field name="partner_rating"/>
+                <button name="print_report" type="object" string="Print report"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="print_sql_report_action" model="ir.actions.act_window">
+        <field name="name">Reports</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.sql</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Begin to register reports
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="books_rent_sql_menu_act" name="SQL report" parent='rents_parent_menu' action="print_sql_report_action" sequence="55"/>
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Creo en un fichero aparte
+todos los puntos de menus que se utilizarán en otros menus  -->
+    <menuitem id="books_parent_menu" name="Library" sequence="10" />
+</odoo>

@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Módulo 6 Sistema DOQ",
-    "summary": "Módulo 6 Sistema DOQ",
+    "name": "DOQ Intermedio - Módulo 6,
+    "summary": "Práctica módulo 6 del Sistema DOQ Intermedio",
     "version": "14.0.1.0.0",
     "category": "Sistema DOQ",
     "website": "https://www.qubiq.es",

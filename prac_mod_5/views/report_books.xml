@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="books_to_return">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h1 t-field="doc.name" />
+                <table>
+                    <thead>
+                        <th>Book</th>
+                        <th style="text-align:right;">Date Borrowed</th>
+                    </thead>
+
+                    <t t-foreach="doc.get_books()" t-as="lines">
+                        <tr>
+                            <td>
+                                <span t-field="lines.book_id" />
+                            </td>
+                            <td style="text-align:right;">
+                                <span t-field="lines.loan_date" />
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </t>
+        </t>
+    </template>
+    <template id="rents_to_print">
+        <t t-call="web.html_container">
+            <h1 t-esc="docs[0].partner_id.name"></h1>
+            <h1>Rating</h1>
+            <h1 t-esc="docs[0].partner_id.rate"></h1>
+            <table>
+                <thead>
+                    <th>Book</th>
+                    <th style="text-align:right;">Date Borrowed</th>
+                </thead>
+                <t t-foreach="docs" t-as="doc">
+                    <tr>
+                        <td>
+                            <span t-field="doc.book_id" />
+                        </td>
+                        <td style="text-align:right;">
+                            <span t-field="doc.loan_date" />
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </t>
+    </template>
+
+    <!-- Práctica módulo 5 - Vistas -->
+    <template id="report_sql_to_print">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <tr>
+                    <td>
+                        <span t-field="doc.partner_name" />
+                    </td>
+                    <td>
+                        <span t-field="doc.partner_code" />
+                    </td>
+                    <td>
+                        <span t-field="doc.partner_rating"/>
+                    </td>
+                    <td>
+                        <span t-field="doc.book_name"/>
+                    </td>
+                    <td>
+                        <span t-field="doc.isbn"/>
+                    </td>
+                </tr>
+            </t>
+        </t>
+    </template>
+</odoo>
