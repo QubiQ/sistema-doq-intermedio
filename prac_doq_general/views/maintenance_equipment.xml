@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Copyright 2021 Jesus Ramoneda <jesus.ramoneda@qubiq.es>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- maintenance.equipment inherit form view -->
+    <record id="view_id" model="ir.ui.view">
+        <field name="name">maintenance.equipment.inherit.view.form</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='cost']" position="after">
+                <!-- Add your fields here -->
+                <div>
+                    <field name="weight" class="oe_inline"/>
+                    <field name="weight_name" nolabel="1" class="oe_inline" style="margin-left:5px"/>
+                </div>
+        </xpath>
+    </field>
+</record>
+</odoo>

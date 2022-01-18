@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Copyright 2021 Jesus Ramoneda <jesus.ramoneda@qubiq.es>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- fsm.order inherit form view -->
+    <record id="fsm_order_inherit_view" model="ir.ui.view">
+        <field name="name">fsm.order.inherit.view.form</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='request_workers']" position="before">
+                <!-- Add your fields here -->
+                <group string="Equipment" name="equipment">
+                    <field name="equipment_line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="equipment_id"/>
+                        </tree>
+                    </field>
+
+                </group>
+                <group class="oe_right" colspan="2" name="total_weight">
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="total_weight"/>
+                    </div>
+                    <div>
+                        <field name="total_weight" nolabel="1" class="oe_subtotal_footer_separator oe_inline"/>
+                        <field name="weight_name" nolabel="1" class="oe_inline" style="margin-left:5px"/>
+                    </div>
+                </group>
+                <div class="oe_clear"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

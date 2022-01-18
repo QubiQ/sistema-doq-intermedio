@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="fms_order_report_template">
+        <t t-call="web.html_container">
+            <h2>Field Order Reports</h2>
+            <table width="100%">
+                <thead>
+                    <th>Field Order</th>
+                    <th>Scheduled Start Date</th>
+                    <th>Asigned To</th>
+                    <th>Description</th>
+                    <th>Resolution</th>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="o">
+                        <tr style="text-align:center;padding-bottom:10px;">
+                            <td><span t-field="o.name"/></td>
+                            <td><span t-field="o.scheduled_date_start"/></td>
+                            <td><span t-field="o.person_id"/></td>
+                            <td><span t-field="o.description"/></td>
+                            <td><span t-field="o.resolution"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </t>
+    </template>
+
+    <record id="action_report_fms_order" model="ir.actions.report">
+        <field name="name">Field Order Report</field>
+        <field name="model">fsm.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">prac_doq_general.fms_order_report_template</field>
+        <field name="report_file">prac_doq_general.fms_order_report_templat</field>
+        <field name="print_report_name">('Fields_reports')</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- fms.order.report form view -->
+    <record id="fms_order_report_view_form" model="ir.ui.view">
+        <field name="name">fms.order.report.view.form</field>
+        <field name="model">fms.order.report</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Close"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="fms_order_report_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Fields Orders Report</field>
+        <field name="res_model">fms.order.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="fms_order_report_menu_act" name="Field Order Report" parent="fieldservice.reporting" action="fms_order_report_action" sequence="10"/>
+</odoo>

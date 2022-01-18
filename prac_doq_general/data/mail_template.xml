@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="email_template_delayed_order" model="mail.template">
+        <field name="name">Field Order: Delayed</field>
+        <field name="model_id" ref="fieldservice.model_fsm_order"/>
+        <field name="email_from">admin@example.org</field>
+        <field name="email_to">admin@example.org</field>
+        <field name="subject">Delayed Orders</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    There are some orders Delayed
+
+                    <table>
+                        <thead>
+                            <th>Order</th>
+                            <th>Asigned to</th>
+                            <th>Scheduled Time</th>
+                        </thead>
+                        <tbody>
+                            % for order in ${ctx['orders']}:
+                            <tr>
+                            <td>${order.name}</td>
+                            <td>${order.person_id}</td>
+                            <td>${order.scheduled_date_start}</td>
+                            </tr>
+                            % endfor
+                        </tbody>
+                    </table>
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>

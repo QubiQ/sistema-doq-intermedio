@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fsm_equimnet_line,access.fsm.equimnet.line,model_fsm_equimnet_line,base.group_user,1,1,1,1
+access_fms_order_report,access.fms.order.report,model_fms_order_report,base.group_user,1,1,1,1
+access_fsm_equipment_report,access.fsm.equipment.report,model_fsm_equipment_report,base.group_user,1,1,1,1
+
