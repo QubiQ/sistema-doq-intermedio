@@ -3,7 +3,7 @@
 	:alt: License: AGPL-3
 
 ======================================
-Práctuca Genral Sistema DOQ Intermedio 
+Práctica Genral Sistema DOQ Intermedio 
 ======================================
 
 This module is a template
